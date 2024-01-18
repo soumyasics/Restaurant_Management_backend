@@ -7,5 +7,5 @@ const app = express()
 
 app.use('/',routes)
 app.listen(4000,()=>{
-    console.log("server  satrted at 4000");
+    console.log("server  satrted  4000");
 })
