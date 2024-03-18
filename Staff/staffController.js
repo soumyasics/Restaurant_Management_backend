@@ -26,4 +26,6 @@ var staffreg=((req,res)=>{
    })
    
 })
+
+
 module.exports={staffreg}
