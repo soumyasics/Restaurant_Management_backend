@@ -7,8 +7,9 @@ var userregschema=new mongoose.Schema({
    password:{type:String},
    address:{type:String},
    district:{type:String},
-   state:{type:string},
+   state:{type:String},
    pincode:{type:Number}
 
 })
+
 module.exports=new mongoose.model("userregschema",userregschema)
