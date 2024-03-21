@@ -1,6 +1,11 @@
 const express = require('express')
 const router=express.Router()
-const staffController=require('./User/userController')
-
-
+const userSchema=require('./User/userController')
+router.post('/userregister',userSchema.userreg)
+router.post('/userlogin',userSchema.userlogin)
+const staffSchema=require('./Staff/staffController')
+router.post('/staffregister',staffSchema.staffreg)
+const staffmenuSchema = require('./Staff/staffmenuController')
+router.post('/staffmenu',staffmenuSchema.upload,staffmenuSchema.staffmenu)
+router.post('/menucard',staffmenuSchema.find)
 module.exports=router
