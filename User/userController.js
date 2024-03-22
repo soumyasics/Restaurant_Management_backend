@@ -13,3 +13,18 @@ var userreg=((req,res)=>{
     pincode:req.body.pincode
     })
 })
+data
+.save()
+.then((response) => {
+  res.json({
+    msg: response,
+  });
+})
+.catch((err) => {
+  res.json({
+    msg: err,
+  });
+  console.log("error");
+});
+
+module.exports ={userreg}
