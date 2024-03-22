@@ -47,4 +47,7 @@ schema.find({})
   })
 })
 })
+
+
+
 module.exports={staffmenu,upload,find}
