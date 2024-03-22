@@ -3,6 +3,7 @@ var menuschema=new mongoose.Schema({
     name:{type:String},
     description:{type:String},
     price:{type:Number},
-    img:{type:Object}
+    img:{type:Object},
+    ftype:{type:String}
 })
-module.exports=mongoose.model('menuschema',menuschema);
+module.exports=new mongoose.model('menuschema',menuschema)
