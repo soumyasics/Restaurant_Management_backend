@@ -6,8 +6,9 @@ var staffregschema=new mongoose.Schema({
     email:{type:String},
     password:{type:String},
     confirmpassword:{type:String},
-    uploadyourphoto:{type:Object},
+    img:{type:Object},
     address:{type:String},
-    uploadanidproof:{type:Object}
+    img2:{type:Object},
+    jobposition:{type:String}
 })
 module.exports=new mongoose.model("staffregschema",staffregschema)

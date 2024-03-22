@@ -4,9 +4,10 @@ const routes=require('./routes')
 const cors=require('cors')
 const dbConnection=require('./dbConnection')
 const app = express()
-app.use(cors())
+app.use(express.static(`${__dirname}/Uploads`));
+app.use(bodyparser.urlencoded({ extended: true }))
 app.use(bodyparser.json())
-
+app.use(cors())
 
 
 app.use('/',routes)
