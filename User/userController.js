@@ -37,7 +37,7 @@ var userlogin=((req,res)=>{
        if(password==response.password){
         res.json({
             status:200,
-            msg:"login successfully"
+            msg:"login successful"
         })
        }
        else{

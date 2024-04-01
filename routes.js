@@ -10,5 +10,7 @@ router.post('/staffmenu',staffmenuSchema.upload,staffmenuSchema.staffmenu)
 router.post('/menucard',staffmenuSchema.find)
 const usercartschema=require('./User/usercartController')
 router.post('/usercart',usercartschema.usercart)
-router.post("/usercartfind/:_id",usercartschema.finditem)
+router.post("/usercartfind/:_id",usercartschema.find)
+router.post("/deleteitem/:_id",usercartschema.deleteById)
+
 module.exports=router 

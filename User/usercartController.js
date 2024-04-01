@@ -20,7 +20,7 @@ var usercart=((req,res)=>{
         })
       })
     })
-    var finditem  = (req, res) => {
+    var find = (req, res) => {
         schema
           .find({ userid:( req.params._id)}).populate('foodid')
           .then((respon) => { 
@@ -34,6 +34,26 @@ var usercart=((req,res)=>{
             });
           });
       };
-    module.exports={usercart,finditem}
+     var deleteById=((req,res)=>{
+      schema.findByIdAndDelete({_id:req.params._id})
+      .exec()
+      .then((resp)=>{
+         res.json({
+          msg:"Record has been deleted",
+         status:200
+      })
+      })
+      .catch((errs)=> {
+        console.log("error")
+        res.json({
+          status:400,
+          msg:errs
+        })
+    })
+  })
+
+     
+
+    module.exports={usercart,find,deleteById}
 
 
