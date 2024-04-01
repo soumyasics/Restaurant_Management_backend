@@ -8,4 +8,9 @@ router.post('/staffregister',staffSchema.staffreg)
 const staffmenuSchema = require('./Staff/staffmenuController')
 router.post('/staffmenu',staffmenuSchema.upload,staffmenuSchema.staffmenu)
 router.post('/menucard',staffmenuSchema.find)
-module.exports=router
+const usercartschema=require('./User/usercartController')
+router.post('/usercart',usercartschema.usercart)
+router.post("/usercartfind/:_id",usercartschema.find)
+router.post("/deleteitem/:_id",usercartschema.deleteById)
+
+module.exports=router 
