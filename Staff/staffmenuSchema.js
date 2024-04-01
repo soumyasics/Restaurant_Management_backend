@@ -6,4 +6,4 @@ var menuschema=new mongoose.Schema({
     img:{type:Object},
     ftype:{type:String}
 })
-module.exports=new mongoose.model('menuschema',menuschema) 
+module.exports=new mongoose.model('menuschema',menuschema)
