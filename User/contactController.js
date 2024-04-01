@@ -23,4 +23,22 @@ var contactus=((req,res)=>{
         console.log('error');
     })
 })
-module.exports={contactus}
+
+var findall=((req,res)=>{
+    schema.find({})
+    .then((response)=>{
+        res.json({
+            status:200,
+            msg:response
+        })
+    })
+    .catch((err)=>{
+        res.json({
+            status:400,
+            msg:err
+        })
+        console.log('error');
+    })
+})
+
+module.exports={contactus,findall}
