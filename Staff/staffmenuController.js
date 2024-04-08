@@ -63,9 +63,40 @@ var Starter=((req,res)=>{
   })
 })
 
+var Beverages=((req,res)=>{
+  schema.find({ftype:"beverages"})
+  .then((re)=>{
+    res.json({
+      msg:re
+    })
+
+  })
+  .catch((err)=>{
+    console.log("err");
+    res.json({
+      msg: err,
+    });
+  })
+})
+
+var Maincourse=((req,res)=>{
+  schema.find({ftype:"main course"})
+  .then((re)=>{
+    res.json({
+      msg:re
+    })
+
+  })
+  .catch((err)=>{
+    console.log("err");
+    res.json({
+      msg: err,
+    });
+  })
+})
 
 
 
 
 
-module.exports={staffmenu,upload,find,Starter}
+module.exports={staffmenu,upload,find,Starter,Beverages,Maincourse}

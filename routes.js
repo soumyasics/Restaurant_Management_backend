@@ -9,9 +9,16 @@ const staffmenuSchema = require('./Staff/staffmenuController')
 router.post('/staffmenu',staffmenuSchema.upload,staffmenuSchema.staffmenu)
 router.post('/menucard',staffmenuSchema.find)
 router.post('/starter',staffmenuSchema.Starter)
+router.post('/beverages',staffmenuSchema.Beverages)
+router.post('/maincourse',staffmenuSchema.Maincourse)
 const contactSchema=require('./User/contactController')
 router.post('/contactfeed',contactSchema.contactus)
 router.post('/feedback',contactSchema.findall)
 const staffmenudeleteschema=require('./Staff/staffmenudeletecontroller')
 router.post('/deletecard/:_id',staffmenudeleteschema.deleteById)
-module.exports=router
+const usercartschema=require('./User/usercartController')
+router.post('/usercart',usercartschema.usercart)
+router.post("/usercartfind/:_id",usercartschema.find)
+router.post("/deleteitem/:_id",usercartschema.deleteById)
+
+module.exports=router 
