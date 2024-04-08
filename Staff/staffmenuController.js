@@ -11,7 +11,7 @@ const storage=multer.diskStorage({
 })
 const upload=multer({storage:storage}).single('img')
 var staffmenu=((req,res)=>{
-  console.log('file',req.body)
+  console.log('file',req.file)
   let data=new schema({
     name:req.body.name,
     description:req.body.description,
@@ -47,7 +47,56 @@ schema.find({})
   })
 })
 })
+var Starter=((req,res)=>{
+  schema.find({ftype:"starter"})
+  .then((re)=>{
+    res.json({
+      msg:re
+    })
+
+  })
+  .catch((err)=>{
+    console.log("err");
+    res.json({
+      msg: err,
+    });
+  })
+})
+
+var Beverages=((req,res)=>{
+  schema.find({ftype:"beverages"})
+  .then((re)=>{
+    res.json({
+      msg:re
+    })
+
+  })
+  .catch((err)=>{
+    console.log("err");
+    res.json({
+      msg: err,
+    });
+  })
+})
+
+var Maincourse=((req,res)=>{
+  schema.find({ftype:"main course"})
+  .then((re)=>{
+    res.json({
+      msg:re
+    })
+
+  })
+  .catch((err)=>{
+    console.log("err");
+    res.json({
+      msg: err,
+    });
+  })
+})
 
 
 
-module.exports={staffmenu,upload,find}
+
+
+module.exports={staffmenu,upload,find,Starter,Beverages,Maincourse}
