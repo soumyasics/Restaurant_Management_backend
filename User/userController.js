@@ -16,40 +16,59 @@ var userreg = (req, res) => {
     .save()
     .then((response) => {
       res.json({
+        status: 200,
         msg: response,
       });
     })
     .catch((err) => {
       res.json({
+        status: 400,
         msg: err,
       });
-      console.log(err);
+      console.log(error);
     });
 };
-var find = (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-
+var userlogin = (req, res) => {
+  var email = req.body.email;
+  var password = req.body.password;
   schema
     .findOne({ email: req.body.email })
+
     .exec()
     .then((response) => {
       if (password == response.password) {
         res.json({
           status: 200,
-          msg: "User Logged In Successfully",
+          msg: "login successfully",
         });
       } else {
-        res.json({ status: 500, msg: "Invalid Password" });
+        res.json({
+          status: 500,
+          msg: "invalid password",
+        });
       }
     })
-
     .catch((err) => {
       res.json({
-        msg: "Invalid user",
         status: 400,
+        msg: "invalid user",
       });
-      console.log(err);
     });
 };
-module.exports = { userreg, find };
+
+var userlist = (req, res) => {
+  schema
+    .find({})
+    .then((resp) => {
+      res.json({
+        msg: resp,
+      });
+    })
+    .catch((err) => {
+      console.log("error");
+      res.json({
+        msg: err,
+      });
+    });
+};
+module.exports = { userreg, userlogin, userlist };

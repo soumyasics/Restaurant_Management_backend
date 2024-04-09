@@ -1,14 +1,16 @@
 const express = require('express')
-const bodyparser=require('body-parser')
 const routes=require('./routes')
+const bodyparser=require('body-parser')
 const dbConnection=require('./dbConnection')
 const cors=require('cors')
 const app = express()
-app.use(cors())
+app.use(express.static(`${__dirname}/Uploads`));
+app.use(bodyparser.urlencoded( { extended: true} ))
 app.use(bodyparser.json())
+app.use(cors())
+const port=4000
 
 app.use('/',routes)
-
-app.listen(4000,()=>{
-    console.log("server  satrted  4000");
+app.listen(port,()=>{
+    console.log("server  started  4000");
 })
