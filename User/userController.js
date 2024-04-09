@@ -38,37 +38,26 @@ var userlogin = (req, res) => {
     .then((response) => {
       if (password == response.password) {
         res.json({
-          status: 200,
-          msg: "login successfully",
-        });
-      } else {
+            status:200,
+            msg:"login successful"
+        })
+       }
+       else{
         res.json({
           status: 500,
           msg: "invalid password",
         });
       }
     })
-    .catch((err) => {
-      res.json({
-        status: 400,
-        msg: "invalid user",
-      });
-    });
-};
-
-var userlist = (req, res) => {
-  schema
-    .find({})
-    .then((resp) => {
-      res.json({
-        msg: resp,
-      });
+    .catch((err)=>{
+        res.json({
+            status:400,
+            msg:"invalid user"
+        })
+        
     })
-    .catch((err) => {
-      console.log("error");
-      res.json({
-        msg: err,
-      });
-    });
-};
-module.exports = { userreg, userlogin, userlist };
+})
+
+
+
+module.exports={userreg,userlogin}
