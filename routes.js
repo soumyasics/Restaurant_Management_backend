@@ -27,4 +27,5 @@ router.post("/deleteitem/:_id", usercartschema.deleteById);
 const transactionschema=require("./Admin/TransactionController")
 router.post("/transaction",transactionschema.transdetails)
 router.post("/usercount",userSchema.usercount)
+router.post("/transhistory",transactionschema.transhistory)
 module.exports = router;
