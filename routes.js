@@ -4,6 +4,7 @@ const userSchema = require("./User/userController");
 router.post("/userregister", userSchema.userreg);
 router.post("/userlogin", userSchema.userlogin);
 router.post("/userlist", userSchema.userlist);
+router.post("/usercount",userSchema.usercount)
 const staffSchema = require("./Staff/staffController");
 router.post("/staffregister", staffSchema.upload, staffSchema.staffreg);
 router.post("/stafflist", staffSchema.find);
