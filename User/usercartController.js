@@ -4,7 +4,7 @@ var usercart=((req,res)=>{
     let data=new schema({
     userid:req.body.userid,
     foodid:req.body.foodid,
-    date:req.body.date,
+    date:new Date(),
     count:req.body.count
     })
     data.save()

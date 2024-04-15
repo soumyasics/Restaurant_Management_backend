@@ -39,7 +39,8 @@ var userlogin = (req, res) => {
       if (password == response.password) {
         res.json({
             status:200,
-            msg:"login successful"
+            msg:"login successful",
+            data:response
         })
        }
        else{
@@ -59,5 +60,21 @@ var userlogin = (req, res) => {
   }
 
 
+  var userlist = (req, res) => {
+    schema
+      .find({})
+      .then((response) => {
+        console.log(response);
+        res.json({
+          msg: response,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.json({
+          msg: err,
+        });
+      });
+  };
 
-module.exports={userreg,userlogin}
+module.exports={userreg,userlogin,userlist}

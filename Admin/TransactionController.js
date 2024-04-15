@@ -25,4 +25,21 @@ var transdetails=(req,res)=>{
         console.log(error);
       });
 }
-module.exports={transdetails};
+
+var orderhistory = (req, res) => {
+  
+    tschema.find({})
+    .then((response) => {
+      console.log(response);
+      res.json({
+        msg: response,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({
+        msg: err,
+      });
+    });
+};
+module.exports={transdetails,orderhistory};
