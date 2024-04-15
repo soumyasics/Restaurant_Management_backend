@@ -53,7 +53,6 @@ var usercart=((req,res)=>{
   })
 
      
-
-    module.exports={usercart,find,deleteById}
+module.exports={usercart,find,deleteById}
 
 

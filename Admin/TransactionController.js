@@ -42,4 +42,23 @@ var orderhistory = (req, res) => {
       });
     });
 };
-module.exports={transdetails,orderhistory};
+
+var transhistory=(req,res)=>{
+  tschema.find({}).select('usermail fitem fprice')
+
+  .then((re)=>{
+    res.json({
+      status:200,
+      msg:re
+    })
+
+  })
+  .catch((err)=>{
+    console.log("err");
+    res.json({
+      msg: err,
+      status:400
+    });
+  })
+  }
+module.exports={transdetails,orderhistory,transhistory};

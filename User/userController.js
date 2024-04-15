@@ -38,43 +38,56 @@ var userlogin = (req, res) => {
     .then((response) => {
       if (password == response.password) {
         res.json({
-            status:200,
-            msg:"login successful",
-            data:response
-        })
-       }
-       else{
+          status: 200,
+          msg: "login successful",
+        });
+      } else {
         res.json({
           status: 500,
           msg: "invalid password",
         });
       }
     })
-    .catch((err)=>{
-        res.json({
-            status:400,
-            msg:"invalid user"
-        })
-        
-    })
-  }
-
-
-  var userlist = (req, res) => {
-    schema
-      .find({})
-      .then((response) => {
-        console.log(response);
-        res.json({
-          msg: response,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.json({
-          msg: err,
-        });
+    .catch((err) => {
+      res.json({
+        status: 400,
+        msg: "invalid user",
       });
-  };
+    });
+  
+};
 
-module.exports={userreg,userlogin,userlist}
+var userlist = (req, res) => {
+  schema
+    .find({})
+    .then((response) => {
+      console.log(response);
+      res.json({
+        msg: response,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({
+        msg: err,
+      });
+    });
+};
+var usercount=(req,res)=>{
+  schema.countDocuments()
+  .then((response) => {
+    console.log(response);
+    res.json({
+      msg: response,
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+    res.json({
+      msg: err,
+    });
+  });
+
+}
+
+module.exports = { userreg, userlogin, userlist ,usercount };
