@@ -4,12 +4,12 @@ const userSchema = require("./User/userController");
 router.post("/userregister", userSchema.userreg);
 router.post("/userlogin", userSchema.userlogin);
 router.post("/userlist", userSchema.userlist);
+router.post("/usercount",userSchema.usercount)
 const staffSchema = require("./Staff/staffController");
 router.post("/staffregister", staffSchema.upload, staffSchema.staffreg);
 router.post("/stafflist", staffSchema.find);
 router.post("/stafflogin", staffSchema.stafflogin);
 const staffmenuSchema = require("./Staff/staffmenuController");
-
 router.post("/staffmenu", staffmenuSchema.upload, staffmenuSchema.staffmenu);
 router.post("/menucard", staffmenuSchema.find);
 router.post("/starter", staffmenuSchema.Starter);
@@ -26,5 +26,6 @@ router.post("/usercartfind/:_id", usercartschema.find);
 router.post("/deleteitem/:_id", usercartschema.deleteById);
 const transactionschema=require("./Admin/TransactionController")
 router.post("/transaction",transactionschema.transdetails)
-router.post("/usercount",userSchema.usercount)
+router.post('/orderhistory',transactionschema.orderhistory)
+router.post('/transhistory',transactionschema.transhistory)
 module.exports = router;
