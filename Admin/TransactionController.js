@@ -6,7 +6,6 @@ var transdetails=(req,res)=>{
         fitem:req.body.fitem,
         fcount:req.body.fcount,
         fprice:req.body.fprice,
-       
         date:req.body.date,
         time:req.body.time
     })
