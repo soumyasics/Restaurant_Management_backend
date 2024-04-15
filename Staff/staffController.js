@@ -92,5 +92,19 @@ var stafflogin=((req,res)=>{
   })
 })
 
-
-module.exports={staffreg,upload,find,stafflogin}
+var scount=((req,res)=>{
+  schema.countDocuments()
+  .then((response)=>{
+    console.log(response);
+    res.json({
+      msg:response
+    })
+  })
+  .catch((err)=>{
+    console.log(err);
+    res.json({
+      msg:err
+    })
+  })
+})
+module.exports={staffreg,upload,find,stafflogin,scount}

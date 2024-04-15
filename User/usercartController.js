@@ -34,25 +34,25 @@ var usercart=((req,res)=>{
             });
           });
       };
-     var deleteById=((req,res)=>{
-      schema.findByIdAndDelete({_id:req.params._id})
-      .exec()
-      .then((resp)=>{
-         res.json({
-          msg:"Record has been deleted",
-         status:200
-      })
-      })
-      .catch((errs)=> {
-        console.log("error")
-        res.json({
-          status:400,
-          msg:errs
-        })
-    })
-  })
-
      
+      var deleteById=((req,res)=>{
+            schema.findByIdAndDelete({_id:req.params._id})
+            .exec()
+            .then((resp)=>{
+                res.json({
+                    status:200,
+                    msg:"deleted successfully"
+                })
+            })
+            .catch((err)=>{
+                console.log("error");
+               res.json({
+                status:500,
+                msg:err
+               })
+            })
+        })
+        
 module.exports={usercart,find,deleteById}
 
 
