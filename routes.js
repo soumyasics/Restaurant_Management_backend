@@ -23,7 +23,7 @@ const staffmenudeleteschema = require("./Staff/staffmenudeletecontroller");
 router.post("/deletecard/:_id", staffmenudeleteschema.deleteById);
 const usercartschema = require("./User/usercartController");
 router.post("/usercart", usercartschema.usercart);
-router.post("/usercartfind", usercartschema.find);
+router.post("/usercartfind/:_id", usercartschema.find);
 router.post("/deleteitem/:_id", usercartschema.deleteById);
 // const usercartdeleteschema=require('./User/usercartdeletecontroller')
 // router.post('/cartdelete/:_id',usercartdeleteschema.deleteById)
