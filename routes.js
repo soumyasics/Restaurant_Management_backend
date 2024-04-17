@@ -9,8 +9,8 @@ const staffSchema = require("./Staff/staffController");
 router.post("/staffregister", staffSchema.upload, staffSchema.staffreg);
 router.post("/stafflist", staffSchema.find);
 router.post("/stafflogin", staffSchema.stafflogin);
+router.post('/staffcount',staffSchema.scount)
 const staffmenuSchema = require("./Staff/staffmenuController");
-
 router.post("/staffmenu", staffmenuSchema.upload, staffmenuSchema.staffmenu);
 router.post("/menucard", staffmenuSchema.find);
 router.post("/starter", staffmenuSchema.Starter);
@@ -23,10 +23,12 @@ const staffmenudeleteschema = require("./Staff/staffmenudeletecontroller");
 router.post("/deletecard/:_id", staffmenudeleteschema.deleteById);
 const usercartschema = require("./User/usercartController");
 router.post("/usercart", usercartschema.usercart);
-router.post("/usercartfind/:_id", usercartschema.find);
+router.post("/usercartfind", usercartschema.find);
 router.post("/deleteitem/:_id", usercartschema.deleteById);
+// const usercartdeleteschema=require('./User/usercartdeletecontroller')
+// router.post('/cartdelete/:_id',usercartdeleteschema.deleteById)
 const transactionschema=require("./Admin/TransactionController")
 router.post("/transaction",transactionschema.transdetails)
-router.post("/usercount",userSchema.usercount)
-router.post("/transhistory",transactionschema.transhistory)
+router.post('/orderhistory',transactionschema.orderhistory)
+router.post('/transhistory',transactionschema.transhistory)
 module.exports = router;

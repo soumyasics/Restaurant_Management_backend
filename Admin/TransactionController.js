@@ -6,7 +6,6 @@ var transdetails=(req,res)=>{
         fitem:req.body.fitem,
         fcount:req.body.fcount,
         fprice:req.body.fprice,
-       
         date:req.body.date,
         time:req.body.time
     })
@@ -25,6 +24,24 @@ var transdetails=(req,res)=>{
         console.log(error);
       });
 }
+
+var orderhistory = (req, res) => {
+  
+    tschema.find({})
+    .then((response) => {
+      console.log(response);
+      res.json({
+        msg: response,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({
+        msg: err,
+      });
+    });
+};
+
 var transhistory=(req,res)=>{
   tschema.find({}).select('usermail fitem fprice')
 
@@ -43,5 +60,4 @@ var transhistory=(req,res)=>{
     });
   })
   }
-
-module.exports={transdetails,transhistory};
+module.exports={transdetails,orderhistory,transhistory};

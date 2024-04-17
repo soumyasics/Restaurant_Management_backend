@@ -40,6 +40,7 @@ var userlogin = (req, res) => {
         res.json({
           status: 200,
           msg: "login successful",
+          data:response
         });
       } else {
         res.json({
