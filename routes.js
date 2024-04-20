@@ -25,8 +25,6 @@ const usercartschema = require("./User/usercartController");
 router.post("/usercart", usercartschema.usercart);
 router.post("/usercartfind/:_id", usercartschema.find);
 router.post("/deleteitem/:_id", usercartschema.deleteById);
-// const usercartdeleteschema=require('./User/usercartdeletecontroller')
-// router.post('/cartdelete/:_id',usercartdeleteschema.deleteById)
 const transactionschema=require("./Admin/TransactionController")
 router.post("/transaction",transactionschema.transdetails)
 router.post('/orderhistory',transactionschema.orderhistory)
