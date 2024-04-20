@@ -1,5 +1,15 @@
 var express=require('express')
 var schema=require('./usercartSchema') 
+var multer=require('multer')
+const storage=multer.diskStorage({
+  destination:function (req, file, cb) {
+    cb(null,'./Uploads')
+  },
+  filename: function (req,file,cb){
+    cb(null,file.originalname);
+  }
+})
+const upload=multer({storage:storage}).single('img')
 var usercart=((req,res)=>{
     let data=new schema({
     userid:req.body.userid,
